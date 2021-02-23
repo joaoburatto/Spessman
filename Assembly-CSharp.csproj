@@ -51,6 +51,7 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CharacterMovement.cs" />
+     <Compile Include="Assets\Scripts\CameraFollow.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
