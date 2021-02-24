@@ -6,12 +6,38 @@ using UnityEngine;
 public class CharacterMovement : MonoBehaviour
 {
     public CharacterController controller;
-    public float movementSpeed;
+    public float baseMovementSpeed = 1;
+
+    public float walkSpeed;
+    public float runSpeed;
+
+    public float lerpSpeed = 1;
+    public bool isWalking;
+
+    public Animator animator;
+    public float newSpeed;
     
     public Vector3 currentMovement = Vector3.zero;
-
+    public Vector3 absoluteMovement = Vector3.zero;
+    
     // Mouse looking target
     public Transform target;
+
+    public Transform camera;
+
+    private void Start()
+    {
+        camera = Camera.main.transform;
+        animator = GetComponent<Animator>();
+    }
+
+    private void LateUpdate()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            isWalking = !isWalking; 
+        }
+    }
 
     private void Update()
     {
@@ -20,20 +46,39 @@ public class CharacterMovement : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
 
         // Joins movement input
-        Vector3 newMovementInput = new Vector3(horizontal, 0, vertical);
+        Vector2 newMovementInput = new Vector3(horizontal, vertical) * (isWalking ? walkSpeed : runSpeed);
         
         // Interpolates current movement to new movement
-        currentMovement = Vector3.Lerp(currentMovement, newMovementInput * movementSpeed, Time.deltaTime);
+        currentMovement = Vector3.Lerp(currentMovement, newMovementInput * (baseMovementSpeed), Time.deltaTime * lerpSpeed);
+
+        float currentSpeed = animator.GetFloat("Speed");
+        animator.speed = baseMovementSpeed;
 
         // if there's no input we interpolate to zero
         if (newMovementInput.magnitude == 0)
         {
             currentMovement = Vector3.Lerp(currentMovement, Vector3.zero, Time.deltaTime * 4);
+            
+            // if there's no movement we make the animator speed variable go to zero
+            newSpeed = Mathf.LerpUnclamped(currentSpeed, 0 , Time.deltaTime * 30);    
+        }
+        // If there's movement we update the animator speed variable
+        else
+        {
+            newSpeed = Mathf.Lerp(currentSpeed, isWalking ? .3f : 1 , Time.deltaTime * 2);            
         }
 
+        // This makes sure your input is based on your camera, so when you press W while looking forward its not shit
+        // I have no idea how it really works
+        absoluteMovement =
+            currentMovement.y * Vector3.Cross(camera.right, Vector3.up).normalized +
+            currentMovement.x * Vector3.Cross(Vector3.up, camera.forward).normalized;
+
         // Actually move
-        controller.Move(currentMovement);
+        controller.Move(absoluteMovement * Time.deltaTime);
         // Look at target
-        transform.LookAt(transform.position + currentMovement);
+        transform.rotation = Quaternion.LookRotation(absoluteMovement + (transform.forward * 5));
+        
+        animator.SetFloat("Speed", newSpeed);
     }
 }
