@@ -52,9 +52,9 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\FollowMouse.cs" />
-     <Compile Include="Assets\Scripts\CharacterMovement.cs" />
-     <Compile Include="Assets\Scripts\LookAtTarget.cs" />
      <Compile Include="Assets\Skybox\SkyboxController.cs" />
+     <Compile Include="Assets\Scripts\LookAtTarget.cs" />
+     <Compile Include="Assets\Scripts\CharacterMovement.cs" />
      <None Include="Assets\Materials\Standard.shader" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
