@@ -8,15 +8,24 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Skybox/SkyboxController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/DestroyOnRemote.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/CameraFollow.cs" />
       <option value="$PROJECT_DIR$/Assets/LookAtTarget.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/CharacterMovement.cs" />
       <option value="$PROJECT_DIR$/Assets/FollowMouse.cs" />
       <option value="$PROJECT_DIR$/Assets/Skybox/SkyboxController.cs" />
+      <option value="$PROJECT_DIR$/Assets/NetworkManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Mirror/Runtime/NetworkManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/NetworkManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/MainMenuUIHelper.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CamerManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CameraManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CameraFollow.cs" />
+      <option value="$PROJECT_DIR$/Assets/DestroyOnRemove.cs" />
+      <option value="$PROJECT_DIR$/Assets/DestroyOnRemote.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/FollowMouse.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CharacterMovement.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1orL1OyCzitzfDOwgjc0b23swsa" />
@@ -30,6 +39,14 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/.. Builds/Spessman.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\João\Desktop\Unity\Spessman Builds" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />

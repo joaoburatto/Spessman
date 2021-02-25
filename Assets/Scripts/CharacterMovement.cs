@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 
-public class CharacterMovement : MonoBehaviour
+public class CharacterMovement : NetworkBehaviour
 {
     public CharacterController controller;
     public float baseMovementSpeed = 1;
@@ -29,10 +30,16 @@ public class CharacterMovement : MonoBehaviour
     {
         camera = Camera.main.transform;
         animator = GetComponent<Animator>();
+        
+        if(!isLocalPlayer) return;
+        
+        CameraManager.singleton.SetCameraFollowTarget(transform);
     }
 
     private void LateUpdate()
     {
+        if(!isLocalPlayer) return;
+        
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             isWalking = !isWalking; 
@@ -41,6 +48,8 @@ public class CharacterMovement : MonoBehaviour
 
     private void Update()
     {
+        if(!isLocalPlayer) return;
+        
         // Input WASD
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");

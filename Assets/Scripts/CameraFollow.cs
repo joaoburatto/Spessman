@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform target;
+    private Transform target;
     public Transform camera;
     public float zoom;
     
@@ -14,7 +14,11 @@ public class CameraFollow : MonoBehaviour
 
     public Vector3 cameraPositionOffset;
     public Vector3 cameraRotationOffset;
-    
+
+    public void SetTarget(Transform target)
+    {
+        this.target = target;
+    }
     private void Update()
     {
         // Set camera to the target position 

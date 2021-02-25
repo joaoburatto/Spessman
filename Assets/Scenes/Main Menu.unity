@@ -290,7 +290,7 @@ GameObject:
   - component: {fileID: 143837730}
   - component: {fileID: 143837729}
   m_Layer: 5
-  m_Name: Title (1)
+  m_Name: Host Server
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -406,6 +406,92 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding: {x: -8, y: -5, z: -8, w: -5}
   m_Softness: {x: 0, y: 0}
+--- !u!1 &701004998
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 701005001}
+  - component: {fileID: 701005000}
+  - component: {fileID: 701004999}
+  m_Layer: 0
+  m_Name: NetworkManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &701004999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701004998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b0fecffa3f624585964b0d0eb21b18e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Port: 7777
+  NoDelay: 1
+  Interval: 10
+  FastResend: 2
+  CongestionWindow: 0
+  SendWindowSize: 4096
+  ReceiveWindowSize: 4096
+  debugLog: 0
+  statisticsGUI: 0
+  statisticsLog: 0
+--- !u!114 &701005000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701004998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a8e13d6f157322459dfe1af78ea6ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dontDestroyOnLoad: 1
+  runInBackground: 1
+  autoStartServerBuild: 1
+  showDebugMessages: 0
+  serverTickRate: 30
+  serverBatching: 0
+  serverBatchInterval: 0
+  offlineScene: Assets/Scenes/Main Menu.unity
+  onlineScene: Assets/Scenes/SampleScene.unity
+  transport: {fileID: 701004999}
+  networkAddress: localhost
+  maxConnections: 100
+  disconnectInactiveConnections: 0
+  disconnectInactiveTimeout: 60
+  authenticator: {fileID: 0}
+  playerPrefab: {fileID: 1481412367306523598, guid: 27e742ebe9bbaf540a501fb5d6866bb4, type: 3}
+  autoCreatePlayer: 1
+  playerSpawnMethod: 0
+  spawnPrefabs:
+  - {fileID: 1481412367306523598, guid: 27e742ebe9bbaf540a501fb5d6866bb4, type: 3}
+--- !u!4 &701005001
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701004998}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 30.142578, y: -10.778217, z: 66.99951}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &920593359
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,7 +505,7 @@ GameObject:
   - component: {fileID: 920593362}
   - component: {fileID: 920593361}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Host
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -487,7 +573,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 920593362}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 701005000}
+        m_TargetAssemblyTypeName: Mirror.NetworkManager, Mirror
+        m_MethodName: StartHost
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &920593362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -770,9 +868,10 @@ GameObject:
   - component: {fileID: 1090757509}
   - component: {fileID: 1090757508}
   - component: {fileID: 1090757507}
-  - component: {fileID: 1090757510}
   - component: {fileID: 1090757512}
   - component: {fileID: 1090757511}
+  - component: {fileID: 1090757510}
+  - component: {fileID: 1090757513}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -935,6 +1034,15 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!45 &1090757513
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090757506}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: 6d7d980cb7d7eb84e9319531e3c14424, type: 2}
 --- !u!1 &1123450734
 GameObject:
   m_ObjectHideFlags: 0
@@ -1252,6 +1360,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1335642864}
+  - component: {fileID: 1335642866}
   m_Layer: 0
   m_Name: Main Menu
   m_TagString: Untagged
@@ -1274,6 +1383,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1335642866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335642863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b0fecffa3f624585964b0d0eb21b18e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Port: 7777
+  NoDelay: 1
+  Interval: 10
+  FastResend: 2
+  CongestionWindow: 0
+  SendWindowSize: 4096
+  ReceiveWindowSize: 4096
+  debugLog: 0
+  statisticsGUI: 0
+  statisticsLog: 0
 --- !u!1 &1630332083
 GameObject:
   m_ObjectHideFlags: 0
@@ -1287,7 +1418,7 @@ GameObject:
   - component: {fileID: 1630332086}
   - component: {fileID: 1630332085}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Join
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1355,7 +1486,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1630332086}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1946121940}
+        m_TargetAssemblyTypeName: Spessman.UIHelper.MainMenuUIHelper, Assembly-CSharp
+        m_MethodName: OnJoinButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1630332086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1683,8 +1826,9 @@ GameObject:
   - component: {fileID: 1946121938}
   - component: {fileID: 1946121937}
   - component: {fileID: 1946121939}
+  - component: {fileID: 1946121940}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Main Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1775,6 +1919,19 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1946121940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946121935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a65d99b75714882bb9b7cd6453b4e3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ipAddressInputField: {fileID: 1123450736}
 --- !u!1 &2113697906
 GameObject:
   m_ObjectHideFlags: 0
@@ -1787,7 +1944,7 @@ GameObject:
   - component: {fileID: 2113697909}
   - component: {fileID: 2113697908}
   m_Layer: 5
-  m_Name: Title
+  m_Name: Join Server
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
