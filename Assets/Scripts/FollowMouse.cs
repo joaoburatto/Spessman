@@ -8,7 +8,7 @@ public class FollowMouse : MonoBehaviour
     private Vector3 mousePos;
     private Camera camera;
 
-    public Transform target;
+    public Transform origin;
     public float heightOffset;
 
     public float goingSpeed = 1;
@@ -29,13 +29,13 @@ public class FollowMouse : MonoBehaviour
     
     public void MoveTargetToMouse()
     {
-        mousePos = Vector3.Lerp(mousePos, GetMousePosition(true), Time.deltaTime * goingSpeed);
+        mousePos = Vector3.LerpUnclamped(mousePos, GetMousePosition(true), Time.deltaTime * goingSpeed);
         transform.position = mousePos;
     }
 
     public void MoveTargetToOrigin()
     {
-        mousePos = Vector3.Lerp(mousePos, target.position + (transform.forward * 4) + transform.up * heightOffset, Time.deltaTime * retrieveSpeed);
+        mousePos = Vector3.Lerp(mousePos, origin.position + (transform.forward * 4) + transform.up * heightOffset, Time.deltaTime * retrieveSpeed);
         transform.position = mousePos;
     }
 

@@ -51,17 +51,28 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\FollowMouse.cs" />
      <Compile Include="Assets\Scripts\CharacterMovement.cs" />
-     <Compile Include="Assets\FollowMouse.cs" />
+     <Compile Include="Assets\Scripts\LookAtTarget.cs" />
+     <Compile Include="Assets\Skybox\SkyboxController.cs" />
      <None Include="Assets\Materials\Standard.shader" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.Burst">
+ <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.VSCode.Editor">
  <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.Burst.Editor">
+ <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Animation.Rigging">
+ <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/Unity.Animation.Rigging.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
@@ -69,41 +80,32 @@
  <Reference Include="Unity.Timeline">
  <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.Postprocessing.Editor">
+ <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.Rider.Editor">
  <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.Mathematics">
+ <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Postprocessing.Runtime">
+ <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Animation.Rigging.Editor">
+ <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/Unity.Animation.Rigging.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.VisualStudio.Editor">
  <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Mathematics.Editor">
+ <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
  <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Postprocessing.Editor">
- <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Postprocessing.Runtime">
- <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Burst">
- <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Burst.Editor">
- <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Animation.Rigging">
- <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/Unity.Animation.Rigging.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Mathematics">
- <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Animation.Rigging.Editor">
- <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/Unity.Animation.Rigging.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Mathematics.Editor">
- <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

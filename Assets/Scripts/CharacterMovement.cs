@@ -77,8 +77,8 @@ public class CharacterMovement : MonoBehaviour
         // Actually move
         controller.Move(absoluteMovement * Time.deltaTime);
         // Look at target
-        transform.rotation = Quaternion.LookRotation(absoluteMovement + (transform.forward * 5));
-        
+        transform.rotation = Quaternion.LookRotation(absoluteMovement + (transform.forward * 10));
+        // Change animator speed value
         animator.SetFloat("Speed", newSpeed);
     }
 }
