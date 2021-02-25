@@ -12,7 +12,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{51893a7e-7419-a645-effb-47b216203dc4}</ProjectGuid>
+    <ProjectGuid>{48aa682f-1668-9bb3-37c4-cab6d3b1c41a}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Mirror</AssemblyName>
@@ -103,10 +103,10 @@
      <Compile Include="Assets\Mirror\Runtime\Transport\KCP\MirrorTransport\KcpTransport.cs" />
      <None Include="Assets\Mirror\Runtime\Mirror.asmdef" />
  <Reference Include="UnityEditor.UI">
- <HintPath>C:/Users/mate/JOGO UNITY JOAO/joj/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Users/mate/JOGO UNITY JOAO/joj/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -307,19 +307,19 @@
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.2f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="Mono.CecilX">
- <HintPath>C:/Users/mate/JOGO UNITY JOAO/joj/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.dll</HintPath>
+ <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.dll</HintPath>
  </Reference>
  <Reference Include="Mono.CecilX.Mdb">
- <HintPath>C:/Users/mate/JOGO UNITY JOAO/joj/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Mdb.dll</HintPath>
+ <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Mdb.dll</HintPath>
  </Reference>
  <Reference Include="Mono.CecilX.Pdb">
- <HintPath>C:/Users/mate/JOGO UNITY JOAO/joj/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Pdb.dll</HintPath>
+ <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Pdb.dll</HintPath>
  </Reference>
  <Reference Include="Mono.CecilX.Rocks">
- <HintPath>C:/Users/mate/JOGO UNITY JOAO/joj/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Rocks.dll</HintPath>
+ <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Rocks.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Burst.Unsafe">
- <HintPath>C:/Users/mate/JOGO UNITY JOAO/joj/Library/PackageCache/com.unity.burst@1.2.0-preview.12/Unity.Burst.Unsafe.dll</HintPath>
+ <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/PackageCache/com.unity.burst@1.2.0-preview.12/Unity.Burst.Unsafe.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.2f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -669,15 +669,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Mirror.CompilerSymbols.csproj">
-      <Project>{0fd6b5a1-55d5-5679-1676-f0b0fc18d3ed}</Project>
+      <Project>{38789eb6-35ce-6f3a-d6f8-f4f6b9371b73}</Project>
       <Name>Mirror.CompilerSymbols</Name>
     </ProjectReference>
     <ProjectReference Include="Telepathy.csproj">
-      <Project>{e150ea2d-5313-94b2-e5dc-cd744aa806db}</Project>
+      <Project>{1cee34ec-e01a-9c82-563c-953e641540f1}</Project>
       <Name>Telepathy</Name>
     </ProjectReference>
     <ProjectReference Include="kcp2k.csproj">
-      <Project>{fd4e6046-b8a5-c16f-a165-64269fe1a467}</Project>
+      <Project>{dc4d4444-8d7a-53c9-01f8-783209e999fa}</Project>
       <Name>kcp2k</Name>
     </ProjectReference>
   </ItemGroup>
