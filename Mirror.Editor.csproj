@@ -12,7 +12,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{73c3f840-299a-1b9b-dd04-d7071109642b}</ProjectGuid>
+    <ProjectGuid>{aa9d4fa5-24c3-f0bd-97cd-7f85c839b1da}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Mirror.Editor</AssemblyName>
@@ -67,16 +67,16 @@
      <Compile Include="Assets\Mirror\Editor\ScriptableObjectUtility.cs" />
      <None Include="Assets\Mirror\Editor\Mirror.Editor.asmdef" />
  <Reference Include="UnityEditor.UI">
- <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>C:/Users/mate/JOGO UNITY JOAO/joj/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Users/mate/JOGO UNITY JOAO/joj/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.TestRunner">
- <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+ <HintPath>C:/Users/mate/JOGO UNITY JOAO/joj/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.TestRunner">
- <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+ <HintPath>C:/Users/mate/JOGO UNITY JOAO/joj/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -276,23 +276,23 @@
  <Reference Include="UnityEditor.UWP.Extensions">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.2f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll</HintPath>
  </Reference>
- <Reference Include="Unity.Burst.Unsafe">
- <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/PackageCache/com.unity.burst@1.2.0-preview.12/Unity.Burst.Unsafe.dll</HintPath>
- </Reference>
  <Reference Include="Mono.CecilX">
- <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.dll</HintPath>
+ <HintPath>C:/Users/mate/JOGO UNITY JOAO/joj/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.dll</HintPath>
  </Reference>
  <Reference Include="Mono.CecilX.Mdb">
- <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Mdb.dll</HintPath>
+ <HintPath>C:/Users/mate/JOGO UNITY JOAO/joj/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Mdb.dll</HintPath>
  </Reference>
  <Reference Include="Mono.CecilX.Pdb">
- <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Pdb.dll</HintPath>
+ <HintPath>C:/Users/mate/JOGO UNITY JOAO/joj/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Pdb.dll</HintPath>
  </Reference>
  <Reference Include="Mono.CecilX.Rocks">
- <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Rocks.dll</HintPath>
+ <HintPath>C:/Users/mate/JOGO UNITY JOAO/joj/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Rocks.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Burst.Unsafe">
+ <HintPath>C:/Users/mate/JOGO UNITY JOAO/joj/Library/PackageCache/com.unity.burst@1.2.0-preview.12/Unity.Burst.Unsafe.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
- <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
+ <HintPath>C:/Users/mate/JOGO UNITY JOAO/joj/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.2f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -642,11 +642,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Mirror.csproj">
-      <Project>{48aa682f-1668-9bb3-37c4-cab6d3b1c41a}</Project>
+      <Project>{51893a7e-7419-a645-effb-47b216203dc4}</Project>
       <Name>Mirror</Name>
     </ProjectReference>
     <ProjectReference Include="Mirror.Weaver.csproj">
-      <Project>{4fc2e76f-18e5-3c8d-950e-df8ac1b05616}</Project>
+      <Project>{42c34906-081c-9f8b-92c8-89a56ea2fecd}</Project>
       <Name>Mirror.Weaver</Name>
     </ProjectReference>
   </ItemGroup>

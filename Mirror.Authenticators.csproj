@@ -12,7 +12,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{4cc6e421-ca9b-0113-4d59-8701ecd3e487}</ProjectGuid>
+    <ProjectGuid>{9baec888-d4d7-9031-3cf8-9ea854df6c02}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Mirror.Authenticators</AssemblyName>
@@ -54,10 +54,10 @@
      <Compile Include="Assets\Mirror\Authenticators\TimeoutAuthenticator.cs" />
      <None Include="Assets\Mirror\Authenticators\Mirror.Authenticators.asmdef" />
  <Reference Include="UnityEditor.UI">
- <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>C:/Users/mate/JOGO UNITY JOAO/joj/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Users/mate/JOGO UNITY JOAO/joj/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -257,20 +257,20 @@
  <Reference Include="UnityEditor.UWP.Extensions">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.2f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll</HintPath>
  </Reference>
- <Reference Include="Unity.Burst.Unsafe">
- <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Library/PackageCache/com.unity.burst@1.2.0-preview.12/Unity.Burst.Unsafe.dll</HintPath>
- </Reference>
  <Reference Include="Mono.CecilX">
- <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.dll</HintPath>
+ <HintPath>C:/Users/mate/JOGO UNITY JOAO/joj/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.dll</HintPath>
  </Reference>
  <Reference Include="Mono.CecilX.Mdb">
- <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Mdb.dll</HintPath>
+ <HintPath>C:/Users/mate/JOGO UNITY JOAO/joj/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Mdb.dll</HintPath>
  </Reference>
  <Reference Include="Mono.CecilX.Pdb">
- <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Pdb.dll</HintPath>
+ <HintPath>C:/Users/mate/JOGO UNITY JOAO/joj/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Pdb.dll</HintPath>
  </Reference>
  <Reference Include="Mono.CecilX.Rocks">
- <HintPath>C:/Users/João/Desktop/Unity/Spessman/Spessman/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Rocks.dll</HintPath>
+ <HintPath>C:/Users/mate/JOGO UNITY JOAO/joj/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Rocks.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Burst.Unsafe">
+ <HintPath>C:/Users/mate/JOGO UNITY JOAO/joj/Library/PackageCache/com.unity.burst@1.2.0-preview.12/Unity.Burst.Unsafe.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.2f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -620,7 +620,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Mirror.csproj">
-      <Project>{48aa682f-1668-9bb3-37c4-cab6d3b1c41a}</Project>
+      <Project>{51893a7e-7419-a645-effb-47b216203dc4}</Project>
       <Name>Mirror</Name>
     </ProjectReference>
   </ItemGroup>
