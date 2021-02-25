@@ -51,7 +51,7 @@ public class CharacterMovement : MonoBehaviour
         // Interpolates current movement to new movement
         currentMovement = Vector3.Lerp(currentMovement, newMovementInput * (baseMovementSpeed), Time.deltaTime * lerpSpeed);
 
-        float currentSpeed = animator.GetFloat("Speed");
+        float currentAnimatorSpeed = animator.GetFloat("Speed");
         animator.speed = baseMovementSpeed;
 
         // if there's no input we interpolate to zero
@@ -60,12 +60,12 @@ public class CharacterMovement : MonoBehaviour
             currentMovement = Vector3.Lerp(currentMovement, Vector3.zero, Time.deltaTime * 4);
             
             // if there's no movement we make the animator speed variable go to zero
-            newSpeed = Mathf.LerpUnclamped(currentSpeed, 0 , Time.deltaTime * 30);    
+            newSpeed = Mathf.LerpUnclamped(currentAnimatorSpeed, 0 , Time.deltaTime * 30);    
         }
         // If there's movement we update the animator speed variable
         else
         {
-            newSpeed = Mathf.Lerp(currentSpeed, isWalking ? .3f : 1 , Time.deltaTime * 2);            
+            newSpeed = Mathf.Lerp(currentAnimatorSpeed, isWalking ? .3f : 1 , Time.deltaTime * 2);            
         }
 
         // This makes sure your input is based on your camera, so when you press W while looking forward its not shit
