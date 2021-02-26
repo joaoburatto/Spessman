@@ -9,13 +9,26 @@ namespace Spessman.Networking
     {
         public static NetworkManager singleton { get; private set; }
         public GameObject humanPrefab;
-
+        public string name;
+        
         public override void Awake()
         {
             base.Awake();
             InitializeSingleton();
         }
 
+        public override void OnServerAddPlayer(NetworkConnection conn)
+        {
+            Transform startPos = GetStartPosition();
+            GameObject player = startPos != null
+                ? Instantiate(playerPrefab, startPos.position, startPos.rotation)
+                : Instantiate(playerPrefab);
+
+            Soul soul = player.GetComponent<Soul>();
+            soul.name = name;
+            NetworkServer.AddPlayerForConnection(conn, player);
+        }
+        
         public void SpawnPlayer(NetworkConnection conn)
         {
             Debug.Log("Spawning player, " + "conn: " + conn.address);
@@ -27,6 +40,9 @@ namespace Spessman.Networking
                 ? Instantiate(humanPrefab, startPos.position, startPos.rotation)
                 : Instantiate(humanPrefab);
 
+            Entity entity = player.GetComponent<Entity>();
+            entity.SetName(name);
+            
             //Spawn actual player
             NetworkServer.ReplacePlayerForConnection(conn, player);
         }

@@ -8,6 +8,9 @@ public class Soul : NetworkBehaviour
 {
     // Current entity controlled by the Soul
     private Transform entity;
+    //
+    public string name;
+    
     private void Start()
     {
         if(!isLocalPlayer) return;

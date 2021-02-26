@@ -9,6 +9,7 @@ namespace Spessman.UIHelper
     public class MainMenuUIHelper : MonoBehaviour
     {
         public TMP_InputField ipAddressInputField;
+        public TMP_InputField nicknameInputField;
         
         private Uri TryParseIpAddress()
         {
@@ -31,7 +32,15 @@ namespace Spessman.UIHelper
         public void OnJoinButtonPressed()
         {
             var uriAdress = TryParseIpAddress();
-            NetworkManager.singleton.StartClient(uriAdress);
+            NetworkManager networkManager = NetworkManager.singleton;
+            string name = nicknameInputField.text;
+
+            if (name == "")
+            {
+                name = "Guest";
+            }
+            networkManager.name = name;
+            networkManager.StartClient(uriAdress);
         }
     }
 }

@@ -9,7 +9,7 @@ public class LocalPlayerManager : MonoBehaviour
     public static LocalPlayerManager singleton { get; private set; }
 
     public NetworkConnection networkConnection;
-    
+
     private void Awake()
     {
         if (singleton != null && singleton != this)
