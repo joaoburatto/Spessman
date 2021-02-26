@@ -1,15 +1,16 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 
 namespace Spessman
 {
     public class Entity : MonoBehaviour
     {
-        private string name;
-        private Transform nameDisplay;
+        private string entityName;
 
         public void SetName(string name)
         {
-            this.name = name;
+            transform.name = name;
+            entityName = name;
         }
     }
 }

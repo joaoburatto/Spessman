@@ -34,6 +34,8 @@ namespace Mirror
         /// </remarks>
         public readonly int connectionId;
 
+        public string username { get; set; }
+
         /// <summary>
         /// Flag that indicates the client has been authenticated.
         /// </summary>

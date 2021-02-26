@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Net;
-using Spessman.Networking;
+using Mirror;
 using TMPro;
 using UnityEngine;
+using NetworkManager = Spessman.Networking.NetworkManager;
 
 namespace Spessman.UIHelper
 {
     public class MainMenuUIHelper : MonoBehaviour
     {
         public TMP_InputField ipAddressInputField;
-        public TMP_InputField nicknameInputField;
-        
+
         private Uri TryParseIpAddress()
         {
             UriBuilder uriBuilder = new UriBuilder();
@@ -28,19 +28,20 @@ namespace Spessman.UIHelper
             var uri = new Uri(uriBuilder.ToString(), UriKind.Absolute);
             return uri;
         }
-        
+
         public void OnJoinButtonPressed()
         {
             var uriAdress = TryParseIpAddress();
             NetworkManager networkManager = NetworkManager.singleton;
-            string name = nicknameInputField.text;
-
-            if (name == "")
-            {
-                name = "Guest";
-            }
-            networkManager.name = name;
             networkManager.StartClient(uriAdress);
+        }
+        
+        
+
+        public void OnHostButtonPressed()
+        {
+            NetworkManager networkManager = NetworkManager.singleton;
+            networkManager.StartHost();
         }
     }
 }

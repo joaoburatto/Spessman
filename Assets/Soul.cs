@@ -3,13 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using Spessman;
 
 public class Soul : NetworkBehaviour
 {
     // Current entity controlled by the Soul
-    private Transform entity;
+    private Entity  entity;
     //
-    public string name;
+    public string username;
     
     private void Start()
     {
@@ -18,7 +19,7 @@ public class Soul : NetworkBehaviour
         LocalPlayerManager.singleton.networkConnection = netIdentity.connectionToClient;
     }
 
-    public void SetEntity(Transform entity)
+    public void SetEntity(Entity entity)
     {
         this.entity = entity;
     }
