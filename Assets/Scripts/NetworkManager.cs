@@ -1,20 +1,58 @@
 ﻿using System;
+using Mirror;
 using TMPro;
+using UnityEngine;
 
 namespace Spessman.Networking
 {
     public class NetworkManager : Mirror.NetworkManager
     {
-        // Handles button-inputfield interaction to connect
-        public void StarClientButton(TMP_InputField inputField )
-        {
-            string ip = inputField.text;
+        public static NetworkManager singleton { get; private set; }
+        public GameObject humanPrefab;
 
-            Uri uri = new Uri(ip);
-            
-            StartClient(uri);
+        public override void Awake()
+        {
+            base.Awake();
+            InitializeSingleton();
+        }
+
+        public void SpawnPlayer(NetworkConnection conn)
+        {
+            Debug.Log("Spawning player, " + "conn: " + conn.address);
+
+            // Spawn player based on their character choices
+            Transform startPos = GetStartPosition();
+
+            GameObject player = startPos != null
+                ? Instantiate(humanPrefab, startPos.position, startPos.rotation)
+                : Instantiate(humanPrefab);
+
+            //Spawn actual player
+            NetworkServer.ReplacePlayerForConnection(conn, player);
+        }
+
+        bool InitializeSingleton()
+        {
+            if (singleton != null && singleton == this) return true;
+
+            if (dontDestroyOnLoad)
+            {
+                if (singleton != null)
+                {
+                    Destroy(gameObject);
+
+                    // Return false to not allow collision-destroyed second instance to continue.
+                    return false;
+                }
+
+                singleton = this;
+                if (Application.isPlaying) DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                singleton = this;
+            }
+            return true;
         }
     }
-    
-    
 }

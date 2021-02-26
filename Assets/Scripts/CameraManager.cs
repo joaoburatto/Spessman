@@ -14,6 +14,7 @@ public class CameraManager : MonoBehaviour
 
     public void SetCameraFollowTarget(Transform target)
     {
+        cameraFollow.enabled = true;
         cameraFollow.SetTarget(target);
     }
     private void Awake()
