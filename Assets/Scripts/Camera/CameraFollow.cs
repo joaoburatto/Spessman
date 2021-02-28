@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
@@ -21,6 +22,18 @@ public class CameraFollow : MonoBehaviour
     }
     private void Update()
     {
+        // TODO: Move this into a singleton CursorManager
+        if (Input.GetKeyDown(KeyCode.LeftAlt))
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftAlt))
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
         // Set camera to the target position 
         transform.position = target.position + positionOffset;
         camera.localPosition = cameraPositionOffset;
