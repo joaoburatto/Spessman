@@ -25,6 +25,9 @@ public class CharacterMovement : NetworkBehaviour
     public Transform target;
 
     public Transform camera;
+    public Transform cameraTarget;
+    
+    public bool blocked;
 
     private void Start()
     {
@@ -33,7 +36,7 @@ public class CharacterMovement : NetworkBehaviour
         
         if(!isLocalPlayer) return;
         
-        CameraManager.singleton.SetCameraFollowTarget(transform);
+        CameraManager.singleton.SetCameraFollowTarget(cameraTarget);
     }
 
     private void LateUpdate()
@@ -83,11 +86,14 @@ public class CharacterMovement : NetworkBehaviour
             currentMovement.y * Vector3.Cross(camera.right, Vector3.up).normalized +
             currentMovement.x * Vector3.Cross(Vector3.up, camera.forward).normalized;
 
-        // Actually move
-        controller.Move(absoluteMovement * Time.deltaTime);
-        // Look at target
-        transform.rotation = Quaternion.LookRotation(absoluteMovement + (transform.forward * 10));
-        // Change animator speed value
-        animator.SetFloat("Speed", newSpeed);
+        if (!blocked)
+        {
+            // Actually move
+            controller.Move(absoluteMovement * Time.deltaTime);
+            // Look at target
+            transform.rotation = Quaternion.LookRotation(absoluteMovement + (transform.forward * 10));
+            // Change animator speed value
+            animator.SetFloat("Speed", newSpeed);
+        }
     }
 }
