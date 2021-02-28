@@ -7,6 +7,19 @@ namespace Spessman
     {
         public static CursorManager singleton { get; private set; }
 
+
+        public void SetCursorState(bool state)
+        {
+            if (state)
+            {
+                SetCursorUnlocked();
+            }
+            else
+            {
+                SetCursorBlocked();
+            }
+        }
+
         public void SetCursorBlocked()
         {
             Cursor.lockState = CursorLockMode.Locked;

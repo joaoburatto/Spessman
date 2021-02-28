@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Mirror;
+using Spessman;
 using UnityEngine;
 using UnityEngine.UI;
 using NetworkManager = Spessman.Networking.NetworkManager;
@@ -37,6 +38,7 @@ public class ServerLobbyUIHelper : NetworkBehaviour
     public void FadeUI()
     {
         bool state = animator.GetBool("Fade");
+        CursorManager.singleton.SetCursorState(!state);
         animator.SetBool("Fade", !state);
     }
     

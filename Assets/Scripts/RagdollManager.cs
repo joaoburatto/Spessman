@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Mirror;
+﻿using Mirror;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class RagdollManager : NetworkBehaviour
 {
@@ -43,8 +39,8 @@ public class RagdollManager : NetworkBehaviour
             {
                 Vector3 force = characterMovement.absoluteMovement;
 
-                foreach (Rigidbody rigidbody in rigidbodies)
-                    rigidbody.AddForce(force * 2, ForceMode.Impulse);
+                int index = new Unity.Mathematics.Random().NextInt(0, rigidbodies.Length - 1);
+                rigidbodies[index].AddForce(force * 2, ForceMode.Impulse);
             }
         }
     }
