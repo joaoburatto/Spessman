@@ -106,6 +106,8 @@ namespace kcp2k
         public int SendBufferCount => kcp.snd_buf.Count;
         public int ReceiveBufferCount => kcp.rcv_buf.Count;
 
+        public static event System.Action OnConnectionFailed;
+
         // maximum send rate per second can be calculated from kcp parameters
         // source: https://translate.google.com/translate?sl=auto&tl=en&u=https://wetest.qq.com/lab/view/391.html
         //
@@ -152,6 +154,8 @@ namespace kcp2k
             //       only ever happen if the connection is truly gone.
             if (time >= lastReceiveTime + TIMEOUT)
             {
+                OnConnectionFailed?.Invoke();
+                
                 Log.Warning($"KCP: Connection timed out after not receiving any message for {TIMEOUT}ms. Disconnecting.");
                 Disconnect();
             }

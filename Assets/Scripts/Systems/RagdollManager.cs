@@ -38,9 +38,7 @@ public class RagdollManager : NetworkBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Vector3 force = characterMovement.absoluteMovement;
-
-                int index = new Unity.Mathematics.Random().NextInt(0, rigidbodies.Length - 1);
-                rigidbodies[index].AddForce(force * 2, ForceMode.Impulse);
+                rigidbodies[0].AddForce(force * 2, ForceMode.Impulse);
             }
         }
     }
