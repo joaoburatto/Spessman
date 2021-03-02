@@ -131,9 +131,9 @@ CharacterController:
   m_Radius: 0.2
   m_SlopeLimit: 45
   m_StepOffset: 0.3
-  m_SkinWidth: 0.08
+  m_SkinWidth: 0.0001
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.75, z: 0}
+  m_Center: {x: 0, y: 0.72, z: 0}
 --- !u!95 &1316120985415538023
 Animator:
   serializedVersion: 3
@@ -169,8 +169,8 @@ MonoBehaviour:
   syncInterval: 0.1
   controller: {fileID: 1840705159331408248}
   baseMovementSpeed: 1
-  walkSpeed: 2
-  runSpeed: 10
+  walkSpeed: 1.69
+  runSpeed: 6.5
   lerpSpeed: 1
   isWalking: 1
   animator: {fileID: 1316120985415538023}
@@ -576,7 +576,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.05
-  m_Height: 0.35098428
+  m_Height: 0.28
   m_Direction: 1
   m_Center: {x: 0, y: 0.17549214, z: 0}
 --- !u!54 &1666727208600761254
@@ -886,7 +886,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.05
-  m_Height: 0.35077465
+  m_Height: 0.28
   m_Direction: 1
   m_Center: {x: 0, y: 0.17538732, z: 0}
 --- !u!54 &8359001333977292579
