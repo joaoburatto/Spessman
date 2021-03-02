@@ -37,6 +37,20 @@ public class CameraFollow : MonoBehaviour
 
         sensitivityX = settings.mouseSensitivityX;
         sensitivityY = settings.mouseSensitivityY;
+        
+        ConsoleUIHelper.OnConsoleDisabled += delegate { enabled = true; };
+        ConsoleUIHelper.OnConsoleEnabled += delegate { enabled = false; };
+    }
+
+    private void OnDestroy()
+    {
+        GeneralSettingsManager settings = GeneralSettingsManager.singleton;
+        
+        ConsoleUIHelper.OnConsoleDisabled -= delegate { enabled = true; };
+        ConsoleUIHelper.OnConsoleEnabled -= delegate { enabled = false; };
+        
+        settings.mouseSensitivityXChanged -= delegate(float value) { sensitivityX = value; };
+        settings.mouseSensitivityYChanged -= delegate(float value) { sensitivityY = value; };
     }
 
     private void LateUpdate()

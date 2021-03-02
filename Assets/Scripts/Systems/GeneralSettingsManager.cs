@@ -24,7 +24,6 @@ namespace Spessman
         public PostProcessProfile[] postProcessing;
         public PostProcessVolume postProcessVolume;
         
-
         private void Awake()
         {
             if (singleton != null) Destroy(gameObject);

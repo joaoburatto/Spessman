@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Spessman;
 using TMPro;
 using UnityEngine;
 
@@ -13,6 +14,9 @@ public class ConsoleUIHelper : MonoBehaviour
     
     public List<string> messages;
     public int messagesIndex;
+
+    public static event System.Action OnConsoleEnabled;
+    public static event System.Action OnConsoleDisabled;
     
     private void Update()
     {
@@ -26,11 +30,13 @@ public class ConsoleUIHelper : MonoBehaviour
 
     public void HandleMessageInput()
     {
-        if (console.text != "")
+        string input = console.text;
+        if (input != "")
         {
-            messages.Add(console.text);
+            messages.Add(input);
         }
 
+        ConsoleCommandHandler.singleton.Command(input);
         console.text = "";
     }
     
@@ -62,6 +68,16 @@ public class ConsoleUIHelper : MonoBehaviour
         if (!animator.enabled) 
             animator.enabled = true;
         animator.SetBool("Fade", state);
+        CursorManager.singleton.SetCursorState(state);
+        if (state)
+        {
+            console.Select();
+            OnConsoleEnabled.Invoke();   
+        }
+        else
+        {
+            OnConsoleDisabled.Invoke();
+        }
     }
 
     public void ToggleConsole()
