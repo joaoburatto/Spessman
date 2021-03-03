@@ -91,6 +91,9 @@ GameObject:
   - component: {fileID: 9081873505117220775}
   - component: {fileID: 6310495526902647483}
   - component: {fileID: 8744573456704735649}
+  - component: {fileID: 7259479897795205510}
+  - component: {fileID: 3917284561969529247}
+  - component: {fileID: 2785839401433832001}
   m_Layer: 0
   m_Name: character ragdoll
   m_TagString: Untagged
@@ -294,6 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 489360a2c2fc43dcbdcc2346ba4fa12a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ViewRange: 10
 --- !u!114 &3084049404968826642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -531,6 +535,62 @@ MonoBehaviour:
   localRotationSensitivity: 0.01
   localScaleSensitivity: 0.01
   target: {fileID: 5160981329179819767}
+--- !u!114 &7259479897795205510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461235854184692850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c49aa1e5ada94de1b51bd69341f36078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  Hands: {fileID: 3917284561969529247}
+--- !u!114 &3917284561969529247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461235854184692850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cb0dec8ad091bb468e4dfb0f4d4f75b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  HandContainers:
+  - {fileID: 7024350050856859822}
+  - {fileID: 7073017317849477676}
+  handRange: 5
+  range:
+    horizontal: 1.5
+    vertical: 1
+  interactionOrigin: {fileID: 9082533142668273933}
+  pickupIcon: {fileID: 21300000, guid: 574c2e2abf1c05b46a628dc5d9d37efa, type: 3}
+--- !u!114 &2785839401433832001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461235854184692850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c0362743a29c3f4bb97acacf5ad39f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  selectionMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  menuPrefab: {fileID: 6380575431912782132, guid: 69782ec738cf5ad40809cf5f548be89a, type: 3}
 --- !u!1 &585265464312851924
 GameObject:
   m_ObjectHideFlags: 0
@@ -1603,6 +1663,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6823862735558444446}
+  - component: {fileID: 7073017317849477676}
   m_Layer: 0
   m_Name: LeftHand
   m_TagString: Untagged
@@ -1629,6 +1690,21 @@ Transform:
   m_Father: {fileID: 7587637051446732168}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 5.382678, y: 16.554707, z: 3.361522}
+--- !u!114 &7073017317849477676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3569883548865547649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72bfc9c5e18140bc9dbf232d3a7c2ff6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HideItems: 0
+  AttachItems: 1
+  AttachmentOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &4028727972601582466
 GameObject:
   m_ObjectHideFlags: 0
@@ -3256,6 +3332,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8561785591983988996}
+  - component: {fileID: 7024350050856859822}
   m_Layer: 0
   m_Name: RightHand
   m_TagString: Untagged
@@ -3282,3 +3359,18 @@ Transform:
   m_Father: {fileID: 5160981329179819767}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -1.679546, y: 29.896408, z: 4.6535206}
+--- !u!114 &7024350050856859822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9138444319903399715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72bfc9c5e18140bc9dbf232d3a7c2ff6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HideItems: 0
+  AttachItems: 1
+  AttachmentOffset: {x: 0, y: 0, z: 0}
