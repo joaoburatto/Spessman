@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Mirror;
+using Spessman.Interactions.Extensions;
 using Spessman.Inventory;
 using Spessman.Inventory.Extensions;
 using UnityEngine;
@@ -25,6 +26,8 @@ namespace Spessman.Interactions
 
         private Camera camera;
 
+        public GameObject selectedObject;
+
         private void Start()
         {
             camera = CameraManager.singleton.playerCamera;
@@ -38,7 +41,10 @@ namespace Spessman.Interactions
                 return;
             }
 
-            if (Input.GetButtonDown("Click"))
+            var ray = camera.ScreenPointToRay(Input.mousePosition);
+            HandleInteractionTargetOutline(ray);
+            
+            if (Input.GetButtonDown("Secondary Click"))
             {
                 if (activeMenu != null)
                 {
@@ -47,7 +53,7 @@ namespace Spessman.Interactions
                 }
 
                 // Run the most prioritised action
-                var ray = camera.ScreenPointToRay(Input.mousePosition);
+                ray = camera.ScreenPointToRay(Input.mousePosition);
                 var viableInteractions = GetViableInteractions(ray, out InteractionEvent interactionEvent);
 
                 if (viableInteractions.Count > 0)
@@ -57,7 +63,7 @@ namespace Spessman.Interactions
                 }
 
             }
-            else if (Input.GetButtonDown("Secondary Click"))
+            else if (Input.GetButtonDown("Primary Click"))
             {
                 if (activeMenu != null)
                 {
@@ -78,7 +84,7 @@ namespace Spessman.Interactions
                 }
                 else
                 {
-                    var ray = camera.ScreenPointToRay(Input.mousePosition);
+                    ray = camera.ScreenPointToRay(Input.mousePosition);
                     var viableInteractions = GetViableInteractions(ray, out InteractionEvent interactionEvent);
                     if (viableInteractions.Select(x => x.Interaction).ToList().Count > 0)
                     {
@@ -98,7 +104,7 @@ namespace Spessman.Interactions
                 }
             }
 
-            if (Input.GetButtonDown("Activate"))
+            if (Input.GetButtonDown("Use"))
             {
                 // Activate item in selected hand
                 Hands hands = GetComponent<Hands>();
@@ -307,6 +313,61 @@ namespace Spessman.Interactions
             interactionEvent = new InteractionEvent(source, targets[0], point);
 
             return GetInteractionsFromTargets(source, targets, interactionEvent);
+        }
+
+        private void HandleInteractionTargetOutline(Ray ray)
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {
+                GameObject target = hit.collider.gameObject;
+                Renderer renderer = target.GetComponentInChildren<Renderer>();
+
+                if (target.layer != 8)
+                {
+                    if (selectedObject != null)
+                    {
+                        selectedObject.GetComponentInChildren<Outline>()?.RemoveMaterials();
+                        selectedObject = null;
+                    }
+
+                    return;
+                }
+                
+                if (renderer == null)
+                {
+                    return; 
+                }
+
+                if (selectedObject == null)
+                {
+                    selectedObject = target;
+                    Outline outline = target.GetComponentInChildren<Outline>();
+                    if (outline == null)
+                    {
+                        outline = renderer.gameObject.AddComponent<Outline>();
+                    }
+                    
+                    outline.OutlineWidth = 6;
+                    outline.AddMaterials();
+                }
+
+                if (selectedObject != target)
+                {
+                    selectedObject?.GetComponentInChildren<Outline>()?.RemoveMaterials();
+
+                    Outline outline = target.GetComponentInChildren<Outline>();
+                    if (outline == null)
+                    {
+                        outline = renderer.gameObject.AddComponent<Outline>();
+                    }
+
+                    selectedObject = target;
+            
+                    outline.OutlineWidth = 6;
+                    outline.AddMaterials();
+                }
+            }
         }
 
         /// <summary>

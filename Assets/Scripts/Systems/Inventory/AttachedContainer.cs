@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Mirror;
-using Spessman;
 using UnityEngine;
 
 namespace Spessman.Inventory
@@ -10,7 +8,7 @@ namespace Spessman.Inventory
     /// <summary>
     /// A container attached to a gameobject
     /// </summary>
-    public class AttachedContainer : MonoBehaviour
+    public class AttachedContainer : NetworkBehaviour
     {
         /// <summary>
         /// If items should be hidden

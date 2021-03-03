@@ -117,7 +117,7 @@ namespace Spessman.Inventory.Extensions
                 CmdSetActiveHand(SelectedHandIndex);
             }
 
-            if (Input.GetButtonDown("Drop Item"))
+            if (Input.GetButtonDown("Drop"))
             {
                 CmdDropHeldItem();
             }

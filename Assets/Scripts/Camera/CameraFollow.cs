@@ -57,17 +57,7 @@ public class CameraFollow : MonoBehaviour
     {
         if (target == null)
             return; 
-            
-        // TODO: Move this into a singleton CursorManager
-        if (Input.GetKeyDown(KeyCode.LeftAlt))
-        {
-            CursorManager.singleton.SetCursorUnlocked();
-        }
-        if (Input.GetKeyUp(KeyCode.LeftAlt))
-        {
-            CursorManager.singleton.SetCursorBlocked();
-        }
-
+        
         // Set camera to the target position
         // normalize Y so we have noflickering from the animation
         float rootPosition = target.root.position.y;
@@ -92,6 +82,16 @@ public class CameraFollow : MonoBehaviour
         }
 
         camera.position += camera.forward * zoom;
+        
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            CursorManager.singleton.SetCursorUnlocked();
+            return;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            CursorManager.singleton.SetCursorBlocked();
+        }
         // Set camera rotation
         camera.localRotation = Quaternion.Euler(cameraRotationOffset);
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + newRotation);

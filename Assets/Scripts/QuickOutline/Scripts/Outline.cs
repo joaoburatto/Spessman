@@ -80,6 +80,8 @@ public class Outline : MonoBehaviour {
 
   private bool needsUpdate;
 
+  public bool permanent;
+  
   public bool getChildren;
   [Tooltip("Makes outline follow normal")]
   public bool normal;
@@ -126,7 +128,7 @@ public class Outline : MonoBehaviour {
       renderers = new [] {GetComponent<Renderer>()};
   }
 
-  void OnEnable()
+  public void AddMaterials()
   {
     SetupRenderers();
     SetupMaterials();
@@ -138,6 +140,8 @@ public class Outline : MonoBehaviour {
 
       materials.Add(outlineMaskMaterial);
       materials.Add(outlineFillMaterial);
+      
+      UpdateMaterialProperties();
 
       renderer.materials = materials.ToArray();
     }
@@ -168,7 +172,7 @@ public class Outline : MonoBehaviour {
     }
   }
 
-  void OnDisable() {
+  public void RemoveMaterials() {
     foreach (var renderer in renderers) {
 
       // Remove outline shaders
