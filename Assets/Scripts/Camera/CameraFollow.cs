@@ -94,6 +94,10 @@ public class CameraFollow : MonoBehaviour
         }
         // Set camera rotation
         camera.localRotation = Quaternion.Euler(cameraRotationOffset);
-        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + newRotation);
+
+        newRotation = transform.rotation.eulerAngles + newRotation;
+
+        newRotation.x = Mathf.Clamp(newRotation.x,  0, 180f);
+        transform.rotation = Quaternion.Euler(newRotation);
     }
 }
