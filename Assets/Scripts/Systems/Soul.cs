@@ -8,7 +8,7 @@ using Spessman;
 public class Soul : NetworkBehaviour
 {
     // Current entity controlled by the Soul
-    private Entity  entity;
+    public Entity entity;
     //
     public string username;
     
@@ -17,6 +17,7 @@ public class Soul : NetworkBehaviour
         if(!isLocalPlayer) return;
 
         LocalPlayerManager.singleton.networkConnection = netIdentity.connectionToClient;
+        LocalPlayerManager.singleton.soul = this;
     }
 
     public void SetEntity(Entity entity)

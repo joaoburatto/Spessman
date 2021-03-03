@@ -35,9 +35,13 @@ namespace Spessman.Networking
             GameObject player = startPos != null
                 ? Instantiate(humanPrefab, startPos.position, startPos.rotation)
                 : Instantiate(humanPrefab);
-
+            
             //Spawn actual player
             NetworkServer.ReplacePlayerForConnection(conn, player);
+
+            Soul soul = LocalPlayerManager.singleton.soul;
+            
+            soul.entity = player.GetComponent<Entity>();
         }
 
         bool InitializeSingleton()
