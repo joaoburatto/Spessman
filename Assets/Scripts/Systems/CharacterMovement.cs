@@ -96,7 +96,7 @@ public class CharacterMovement : NetworkBehaviour
         if (!blocked)
         {
             // Actually move
-            controller.Move((absoluteMovement) * Time.deltaTime);
+            controller.Move((absoluteMovement + Physics.gravity) * Time.deltaTime);
             // Look at target
             transform.rotation = Quaternion.LookRotation(absoluteMovement + (transform.forward * 10));
             // Change animator speed value

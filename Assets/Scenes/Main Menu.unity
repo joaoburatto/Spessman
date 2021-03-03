@@ -725,6 +725,7 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+  permanent: 0
   getChildren: 0
   normal: 0
 --- !u!1 &701004998
