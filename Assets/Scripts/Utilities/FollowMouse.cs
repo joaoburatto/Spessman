@@ -22,10 +22,10 @@ public class FollowMouse : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse1)) 
-            MoveTargetToMouse();
-        else 
+        if (Input.GetKey(KeyCode.LeftAlt)) 
             MoveTargetToOrigin();
+        else 
+            MoveTargetToMouse();
     }
     
     public void MoveTargetToMouse()

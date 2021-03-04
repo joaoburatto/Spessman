@@ -808,6 +808,7 @@ MonoBehaviour:
   - {fileID: 6560701419942639652, guid: 4fb43744bd4f6494c805eeb0ac47080f, type: 3}
   - {fileID: 2641189254455394756, guid: 6433960e14b8ddb4ba2e26c2a2a5d45c, type: 3}
   - {fileID: 3686962822135289178, guid: f4bb42c8d057cb64ab738e2e534f587a, type: 3}
+  - {fileID: 4476580308915154401, guid: a92bb8144e5771b4788c3fda8cfbd37e, type: 3}
   humanPrefab: {fileID: 461235854184692850, guid: 4cb1d5d688461b54198f6152c436c15e, type: 3}
 --- !u!4 &701005001
 Transform:

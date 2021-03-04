@@ -36,7 +36,7 @@ namespace Spessman.Inventory
             for (var i = 0; i < colliders.Length; i++)
             {
                 originalColliderStates[i] = colliders[i].enabled;
-                colliders[i].enabled = false;
+                //colliders[i].enabled = false;
             }
 
             var rigidbody = Item.GetComponent<Rigidbody>();

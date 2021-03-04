@@ -23,7 +23,7 @@ namespace Spessman.Inventory.Extensions
 
         public Sprite GetIcon(InteractionEvent interactionEvent)
         {
-            return icon;
+            return AssetData.Icons.GetAsset("drop");
         }
 
         public bool CanInteract(InteractionEvent interactionEvent)

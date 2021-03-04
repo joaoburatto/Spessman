@@ -607,7 +607,7 @@ MonoBehaviour:
   buttonAngle: 22.5
   buttonMaxDistance: 38
   mouseDistance: 0
-  missingIcon: {fileID: 21300000, guid: 66026a73b54c5814aa62ed061b556bbd, type: 3}
+  missingIcon: {fileID: 21300000, guid: 531abd336d6f4854a9d81b520fcc18ae, type: 3}
 --- !u!95 &1729488106850954084
 Animator:
   serializedVersion: 3
