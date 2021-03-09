@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 43661717a639a7547ba13ecaa729dc1c
+guid: 2bfc4080f8548ab46837f15562954d99
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable: []
@@ -7,13 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Palette
-    second: {fileID: 2100000, guid: 9daa22ff858eb134cb18ccb249b7fbac, type: 2}
+      name: glass
+    second: {fileID: 2100000, guid: c619c4075f1ae994a9e6d4c2b8ef8c70, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Skin
-    second: {fileID: 2100000, guid: f381bf59695db5b48b92eb89319d22fb, type: 2}
+      name: palette
+    second: {fileID: 2100000, guid: 9daa22ff858eb134cb18ccb249b7fbac, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -64,7 +64,7 @@ ModelImporter:
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
-    meshOptimizationFlags: -1
+    meshOptimizationFlags: 0
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
@@ -96,7 +96,7 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     globalScale: 1
-    rootMotionBoneName: Armature
+    rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
@@ -104,7 +104,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 0
   additionalBone: 0
   userData: 
   assetBundleName: 

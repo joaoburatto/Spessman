@@ -22,8 +22,8 @@ namespace Spessman.Interactions
         /// The interval in seconds in which CanInteract is checked
         /// </summary>
         protected float CheckInterval { get; set; }
-        private float startTime;
-        private float lastCheck;
+        protected float startTime;
+        protected float lastCheck;
         
         public IClientInteraction CreateClient(InteractionEvent interactionEvent)
         {

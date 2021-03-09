@@ -14,7 +14,13 @@ public class FollowMouse : MonoBehaviour
 
     public float goingSpeed = 1;
     public float retrieveSpeed = 1;
+    public float forwardMultiplier = 1;
     
+    public bool blocked;
+
+    public bool spaceForForward;
+    
+    public Vector3 currentTarget;
     private void Start()
     {
         camera = Camera.main;
@@ -22,12 +28,21 @@ public class FollowMouse : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.LeftAlt)) 
+        if (currentTarget.magnitude == 0)
+        {
             MoveTargetToOrigin();
-        else 
-            MoveTargetToMouse();
+        }
+        else
+        {
+            MoveTargetToPosition();
+        }
+        
+        if (spaceForForward && Input.GetKey(KeyCode.Space))
+        {
+            MoveTargetToForward();
+        }
     }
-    
+
     public void MoveTargetToMouse()
     {
         mousePos = Vector3.LerpUnclamped(mousePos, GetMousePosition(true), Time.deltaTime * goingSpeed);
@@ -36,7 +51,19 @@ public class FollowMouse : MonoBehaviour
 
     public void MoveTargetToOrigin()
     {
-        mousePos = Vector3.Lerp(mousePos, origin.position + (transform.forward * 4) + transform.up * heightOffset, Time.deltaTime * retrieveSpeed);
+        mousePos = Vector3.Lerp(mousePos, origin.position + (origin.forward * forwardMultiplier) + origin.up * heightOffset, Time.deltaTime * retrieveSpeed);
+        transform.position = mousePos;
+    }
+    
+    public void MoveTargetToForward()
+    {
+        mousePos = Vector3.Lerp(mousePos, origin.position + origin.up * heightOffset, Time.deltaTime * retrieveSpeed);
+        transform.position = mousePos;
+    }
+    
+    public void MoveTargetToPosition()
+    {
+        mousePos = Vector3.Lerp(mousePos, currentTarget, Time.deltaTime * retrieveSpeed);
         transform.position = mousePos;
     }
 

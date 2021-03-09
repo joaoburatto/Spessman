@@ -1,6 +1,7 @@
 ﻿using Spessman.Interactions;
 using Spessman.Interactions.Extensions;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Spessman.Inventory.Extensions
@@ -45,7 +46,6 @@ namespace Spessman.Inventory.Extensions
             
             return false;
         }
-
         public bool Update(InteractionEvent interactionEvent, InteractionReference reference)
         {
             throw new System.NotImplementedException();

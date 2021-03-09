@@ -419,6 +419,7 @@ MonoBehaviour:
   bulkSize: 2
   traits: []
   Size: {x: 0, y: 0}
+  animationClip: {fileID: 0}
   projectilePoint: {fileID: 4451025339029093420}
   projectile: {fileID: 4476580308915154401, guid: a92bb8144e5771b4788c3fda8cfbd37e, type: 3}
   particleSystem: {fileID: 8784238483080105804}
@@ -439,7 +440,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7832922957787251108
 Transform:
   m_ObjectHideFlags: 0
@@ -5197,7 +5198,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7175ec1b60237cf419591afd2b950223, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

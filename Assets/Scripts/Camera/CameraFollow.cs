@@ -97,7 +97,7 @@ public class CameraFollow : MonoBehaviour
 
         newRotation = transform.rotation.eulerAngles + newRotation;
 
-        newRotation.x = Mathf.Clamp(newRotation.x,  -20, 180f);
+        newRotation.x = Mathf.Clamp(newRotation.x,  0, 180f);
         transform.rotation = Quaternion.Euler(newRotation);
     }
 }

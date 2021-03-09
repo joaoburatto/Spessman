@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 4096421828637470028}
   - component: {fileID: 2121547298823299104}
   m_Layer: 8
-  m_Name: soda_green
+  m_Name: drink_soda_green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -170,6 +170,7 @@ MonoBehaviour:
   bulkSize: 2
   traits: []
   Size: {x: 0, y: 0}
+  animationClip: {fileID: 7400000, guid: 03d05c6cdddd83d42a3065cde135395e, type: 2}
 --- !u!54 &4096421828637470028
 Rigidbody:
   m_ObjectHideFlags: 0
