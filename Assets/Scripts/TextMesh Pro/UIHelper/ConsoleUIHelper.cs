@@ -36,8 +36,9 @@ public class ConsoleUIHelper : MonoBehaviour
             messages.Add(input);
         }
 
-        ConsoleCommandHandler.singleton.Command(input);
+        ConsoleCommandHandler.singleton.ExecuteCommand(input);
         console.text = "";
+        console.Select();
     }
     
     private void HandleMessageLog()

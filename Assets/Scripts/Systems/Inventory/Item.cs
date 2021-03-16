@@ -33,6 +33,7 @@ namespace Spessman.Inventory
         private Container container;
         private FrozenItem frozenItem;
 
+        public AnimationClip animationClip;
 
         public Item()
         {

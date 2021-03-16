@@ -14,6 +14,8 @@ namespace Spessman.Inventory.Extensions
         [SerializeField] public AttachedContainer[] HandContainers;
         [SerializeField] private float handRange;
 
+        public HandIKManager handIKManager;
+        
         [NonSerialized]
         public Inventory Inventory;
         public int SelectedHandIndex { get; private set; }
@@ -31,6 +33,24 @@ namespace Spessman.Inventory.Extensions
         /// The item held in the active hand
         /// </summary>
         public Item ItemInHand => SelectedHandContainer?.Items.FirstOrDefault();
+
+        /// <summary>
+        /// Items in each hand
+        /// </summary>
+        public Item[] ItemsInHands => new[]
+        {
+            HandContainers[0].Container?.ItemAt(new Vector2Int(0, 0)),
+            HandContainers[1].Container?.ItemAt(new Vector2Int(0, 0))
+        };
+
+        /// <summary>
+        /// Animations in each hand
+        /// </summary>
+        public AnimationClip[] ItemsAnimationClips => new[]
+        {
+            ItemsInHands[0]?.animationClip,
+            ItemsInHands[1]?.animationClip
+        };
         
         /// <summary>
         /// The currently active hand

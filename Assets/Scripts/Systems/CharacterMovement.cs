@@ -28,6 +28,7 @@ public class CharacterMovement : NetworkBehaviour
     public Transform cameraTarget;
     
     public bool blocked;
+    public bool ignoreInput;
 
     private void Start()
     {
@@ -36,7 +37,16 @@ public class CharacterMovement : NetworkBehaviour
         
         if(!isLocalPlayer) return;
         
+        ConsoleUIHelper.OnConsoleDisabled += delegate { ignoreInput = false; };
+        ConsoleUIHelper.OnConsoleEnabled += delegate { ignoreInput = true; };
+        
         CameraManager.singleton.SetCameraFollowTarget(cameraTarget);
+    }
+
+    private void OnDestroy()
+    {
+        ConsoleUIHelper.OnConsoleDisabled -= delegate { ignoreInput = false; };
+        ConsoleUIHelper.OnConsoleEnabled -= delegate { ignoreInput = true; };
     }
 
     private void LateUpdate()
@@ -58,8 +68,11 @@ public class CharacterMovement : NetworkBehaviour
         float vertical = Input.GetAxis("Vertical");
 
         // Joins movement input
+        
         Vector2 newMovementInput = new Vector3(horizontal, vertical) * (isWalking ? walkSpeed : runSpeed);
         
+        if (ignoreInput) newMovementInput = Vector2.zero;
+
         // Interpolates current movement to new movement
         currentMovement = Vector3.Lerp(currentMovement, newMovementInput * (baseMovementSpeed), Time.deltaTime * (lerpSpeed * 2));
 
@@ -96,11 +109,13 @@ public class CharacterMovement : NetworkBehaviour
         if (!blocked)
         {
             // Actually move
-            controller.Move((absoluteMovement + Physics.gravity) * Time.deltaTime);
+            controller.Move((absoluteMovement) * Time.deltaTime);
             // Look at target
             transform.rotation = Quaternion.LookRotation(absoluteMovement + (transform.forward * 10));
             // Change animator speed value
             animator.SetFloat("Speed", newSpeed);
         }
+
+        controller.Move(Physics.gravity * Time.deltaTime);
     }
 }

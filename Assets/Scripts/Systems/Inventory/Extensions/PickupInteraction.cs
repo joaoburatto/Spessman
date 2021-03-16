@@ -1,30 +1,31 @@
 using Spessman.Interactions;
 using Spessman.Interactions.Extensions;
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Spessman.Inventory.Extensions
 {
-    public class PickupInteraction : IInteraction
+    public class PickupInteraction : DelayedInteraction
     {
         public Sprite icon;
-
+        
         public IClientInteraction CreateClient(InteractionEvent interactionEvent)
         {
             return null;
         }
 
-        public string GetName(InteractionEvent interactionEvent)
+        public override string GetName(InteractionEvent interactionEvent)
         {
             return "Pick up";
         }
 
-        public Sprite GetIcon(InteractionEvent interactionEvent)
+        public override Sprite GetIcon(InteractionEvent interactionEvent)
         {
-            return icon;
+            return AssetData.Icons.GetAsset("pickup");
         }
 
-        public bool CanInteract(InteractionEvent interactionEvent)
+        public override bool CanInteract(InteractionEvent interactionEvent)
         {
             if (interactionEvent.Target is IGameObjectProvider targetBehaviour && interactionEvent.Source is Hands hands)
             {
@@ -45,23 +46,32 @@ namespace Spessman.Inventory.Extensions
             return false;
         }
 
-        public bool Start(InteractionEvent interactionEvent, InteractionReference reference)
+        public override bool Start(InteractionEvent interactionEvent, InteractionReference reference)
         {
             if (interactionEvent.Source is Hands hands && interactionEvent.Target is Item target)
             {
-                hands.Pickup(target);
+                Delay = .4f;
+                hands.handIKManager.PickupAnimationHelper(target.transform.position, Delay);
+                startTime = Time.time;
+                lastCheck = startTime;
+                
+                return true;
             }
             return false;
         }
-
-        public bool Update(InteractionEvent interactionEvent, InteractionReference reference)
+        
+        public override void Cancel(InteractionEvent interactionEvent, InteractionReference reference)
         {
-            throw new System.NotImplementedException();
+            
         }
 
-        public void Cancel(InteractionEvent interactionEvent, InteractionReference reference)
+        protected override void StartDelayed(InteractionEvent interactionEvent)
         {
-            throw new System.NotImplementedException();
+            if (interactionEvent.Source is Hands hands && interactionEvent.Target is Item target)
+            {
+                hands.handIKManager.UnlockHandIK();
+                hands.Pickup(target);
+            }
         }
     }
 }

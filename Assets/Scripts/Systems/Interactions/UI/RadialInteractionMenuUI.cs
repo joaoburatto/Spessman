@@ -110,7 +110,7 @@ namespace Spessman.Interactions.UI
             bool hasSelfAsParent = false;
             obj = EventSystem.current?.currentSelectedGameObject;
 
-            if (Input.GetButtonDown("Secondary Click"))
+            if (Input.GetButtonDown("Primary Click"))
             {
                 // Check for self as parent of click
                 while (obj != null)
@@ -131,7 +131,7 @@ namespace Spessman.Interactions.UI
                 }
             }
             // Deletes the object and calls the interaction if it exists when mouse 1 is up
-            if (Input.GetMouseButtonUp(1))
+            if (Input.GetButtonUp("Primary Click"))
             {
                 if (selectedPetal != null)
                     selectedPetal.GetComponentInChildren<Button>().onClick.Invoke();

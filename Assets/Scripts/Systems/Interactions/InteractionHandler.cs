@@ -69,19 +69,7 @@ namespace Spessman.Interactions
                 {
                     Destroy(activeMenu.gameObject);
                 }
-
-                if (Input.GetButton("Alternate"))
-                {
-                    Hands hands = GetComponent<Hands>();
-                    if (hands != null )
-                    {
-                        Item item = hands.ItemInHand;
-                        if (item != null)
-                        {
-                            InteractInHand(item.gameObject, gameObject, true);
-                        }
-                    }
-                }
+                
                 else
                 {
                     ray = camera.ScreenPointToRay(Input.mousePosition);
