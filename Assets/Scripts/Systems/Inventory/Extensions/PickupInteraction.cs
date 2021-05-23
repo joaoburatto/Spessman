@@ -51,7 +51,7 @@ namespace Spessman.Inventory.Extensions
             if (interactionEvent.Source is Hands hands && interactionEvent.Target is Item target)
             {
                 Delay = .4f;
-                hands.handIKManager.PickupAnimationHelper(target.transform.position, Delay);
+                hands.IKManager.PickupAnimationHelper(target.transform.position, Delay);
                 startTime = Time.time;
                 lastCheck = startTime;
                 
@@ -69,7 +69,7 @@ namespace Spessman.Inventory.Extensions
         {
             if (interactionEvent.Source is Hands hands && interactionEvent.Target is Item target)
             {
-                hands.handIKManager.UnlockHandIK();
+                hands.IKManager.UnlockHandIK();
                 hands.Pickup(target);
             }
         }

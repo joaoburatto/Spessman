@@ -7,6 +7,7 @@ using Spessman.Inventory;
 using Spessman.Inventory.Extensions;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Utilities.QuickOutline.Scripts;
 
 namespace Spessman.Interactions
 {
@@ -42,7 +43,9 @@ namespace Spessman.Interactions
             }
 
             var ray = camera.ScreenPointToRay(Input.mousePosition);
-            HandleInteractionTargetOutline(ray);
+            
+            // Handles the Outline in selected objects
+            InteractionTargetOutlineHandler(ray);
             
             if (Input.GetButtonDown("Secondary Click"))
             {
@@ -303,58 +306,41 @@ namespace Spessman.Interactions
             return GetInteractionsFromTargets(source, targets, interactionEvent);
         }
 
-        private void HandleInteractionTargetOutline(Ray ray)
+        private void InteractionTargetOutlineHandler(Ray ray)
         {
             RaycastHit hit;
+
             if (Physics.Raycast(ray, out hit))
             {
                 GameObject target = hit.collider.gameObject;
-                Renderer renderer = target.GetComponentInChildren<Renderer>();
+                Outline outline = target.GetComponent<Selectable>()?.outline;
 
-                if (target.layer != 8)
+                // Layer 8 is Item and Layer 10 is GeneralSelectable, Unity do be like that
+                // if the hit doesn't find anything in those layers we deselect the selectedObject
+                if (target.layer != 8 || target.layer != 10)
                 {
-                    if (selectedObject != null)
+                    // if we already have a selected object and the new ray doesn't hit it
+                    if (selectedObject != null && selectedObject != hit.transform.gameObject)
                     {
-                        selectedObject.GetComponentInChildren<Outline>()?.RemoveMaterials();
+                        // we remove the outline and remove the selected object
+                        selectedObject.GetComponent<Selectable>()?.outline.RemoveMaterials();
                         selectedObject = null;
+                        
+                        return;
                     }
-
-                    return;
-                }
-                
-                if (renderer == null)
-                {
-                    return; 
                 }
 
+                // if nothing is selected
                 if (selectedObject == null)
                 {
                     selectedObject = target;
-                    Outline outline = target.GetComponentInChildren<Outline>();
-                    if (outline == null)
-                    {
-                        outline = renderer.gameObject.AddComponent<Outline>();
-                    }
-                    
-                    outline.OutlineWidth = 6;
+                    // this adds the outline
                     outline.AddMaterials();
                 }
 
-                if (selectedObject != target)
-                {
-                    selectedObject?.GetComponentInChildren<Outline>()?.RemoveMaterials();
-
-                    Outline outline = target.GetComponentInChildren<Outline>();
-                    if (outline == null)
-                    {
-                        outline = renderer.gameObject.AddComponent<Outline>();
-                    }
-
-                    selectedObject = target;
-            
-                    outline.OutlineWidth = 6;
-                    outline.AddMaterials();
-                }
+                // selected object same as new
+                if (selectedObject != null && selectedObject == target)
+                    return; //Debug.Log("selected object same as new");
             }
         }
 

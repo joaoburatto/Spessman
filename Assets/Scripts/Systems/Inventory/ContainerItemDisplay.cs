@@ -54,7 +54,7 @@ namespace Spessman.Inventory
                 
                 temporaryPoint.transform.SetParent(Displays[index].transform, false);
                 temporaryPoint.transform.localPosition = Vector3.zero;
-                temporaryPoint.transform.rotation = attachmentPoint.root.rotation *  attachmentPoint.localRotation;
+                temporaryPoint.transform.localRotation = Quaternion.Euler(item.rotationOffset);
                 
                 // Assign parent
                 itemTransform.SetParent(temporaryPoint.transform, false);
@@ -82,7 +82,7 @@ namespace Spessman.Inventory
                 {
                     index = i;
                     break;
-                }
+                }   
             }
 
             if (index == -1)

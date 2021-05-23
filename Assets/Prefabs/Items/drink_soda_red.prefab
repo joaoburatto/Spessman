@@ -161,6 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  outline: {fileID: 0}
   ItemId: 
   Name: 
   Volume: 10
@@ -170,7 +171,12 @@ MonoBehaviour:
   bulkSize: 2
   traits: []
   Size: {x: 0, y: 0}
-  animationClip: {fileID: 7400000, guid: 03d05c6cdddd83d42a3065cde135395e, type: 2}
+  rotationOffset: {x: 0, y: 0, z: 0}
+  positionOffset: {x: 0, y: 0, z: 0}
+  animationClips:
+  - {fileID: 7400000, guid: 03d05c6cdddd83d42a3065cde135395e, type: 2}
+  - {fileID: 7400000, guid: 9b060e56840613f40ac7018fc3d68a50, type: 2}
+  currentAnimationClip: {fileID: 7400000, guid: 03d05c6cdddd83d42a3065cde135395e, type: 2}
 --- !u!54 &-8964019558590578453
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -205,6 +211,7 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+  renderers: []
   permanent: 0
   getChildren: 0
   normal: 0

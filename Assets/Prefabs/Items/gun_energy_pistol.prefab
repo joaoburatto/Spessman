@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 111077022999333207}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.037}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4062644387199471584}
@@ -152,8 +152,6 @@ GameObject:
   - component: {fileID: 1869402741914874209}
   - component: {fileID: 5813434633212912057}
   - component: {fileID: 2678785329042115849}
-  - component: {fileID: 4606004801268553601}
-  - component: {fileID: 5284938522089139688}
   m_Layer: 8
   m_Name: pistol
   m_TagString: Untagged
@@ -225,41 +223,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4606004801268553601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2199619876260343897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0.7254902, g: 0.28627452, b: 0.28627452, a: 1}
-  outlineWidth: 5.2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
-  permanent: 0
-  getChildren: 0
-  normal: 0
---- !u!64 &5284938522089139688
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2199619876260343897}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 3566142479992934649, guid: 3e0af264c164eb34687c995c918fa284, type: 3}
 --- !u!1 &3444158987170611934
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,6 +267,8 @@ GameObject:
   - component: {fileID: 4606004802754258821}
   - component: {fileID: 4606004802754258822}
   - component: {fileID: 6673971758797927295}
+  - component: {fileID: 7414283166309942669}
+  - component: {fileID: 5064811821381910814}
   m_Layer: 8
   m_Name: gun_energy_pistol
   m_TagString: Untagged
@@ -410,6 +375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  outline: {fileID: 0}
   ItemId: 
   Name: 
   Volume: 10
@@ -419,10 +385,48 @@ MonoBehaviour:
   bulkSize: 2
   traits: []
   Size: {x: 0, y: 0}
+  rotationOffset: {x: 0, y: 180, z: 90}
+  positionOffset: {x: 0, y: 0, z: 0}
   animationClip: {fileID: 0}
   projectilePoint: {fileID: 4451025339029093420}
   projectile: {fileID: 4476580308915154401, guid: a92bb8144e5771b4788c3fda8cfbd37e, type: 3}
   particleSystem: {fileID: 8784238483080105804}
+--- !u!64 &7414283166309942669
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3686962822135289178}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3566142479992934649, guid: 3e0af264c164eb34687c995c918fa284, type: 3}
+--- !u!114 &5064811821381910814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3686962822135289178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.5529412, g: 0.19215688, b: 0.19215688, a: 1}
+  outlineWidth: 6
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+  renderers: []
+  permanent: 0
+  getChildren: 0
+  normal: 0
 --- !u!1 &6975329514153878728
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,9 @@ namespace Spessman.Inventory.Extensions
         [SerializeField] public AttachedContainer[] HandContainers;
         [SerializeField] private float handRange;
 
-        public HandIKManager handIKManager;
+        // This is here so we can control the IK
+        // TODO: Move to the entity class
+        public GeneralHumanIKManager IKManager;
         
         [NonSerialized]
         public Inventory Inventory;
@@ -48,8 +50,8 @@ namespace Spessman.Inventory.Extensions
         /// </summary>
         public AnimationClip[] ItemsAnimationClips => new[]
         {
-            ItemsInHands[0]?.animationClip,
-            ItemsInHands[1]?.animationClip
+            ItemsInHands[0]?.currentAnimationClip,
+            ItemsInHands[1]?.currentAnimationClip
         };
         
         /// <summary>

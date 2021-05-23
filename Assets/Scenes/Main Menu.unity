@@ -725,6 +725,7 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+  renderers: []
   permanent: 0
   getChildren: 0
   normal: 0

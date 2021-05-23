@@ -16,7 +16,8 @@ namespace Spessman.Inventory
      * An item describes what is held in a container.
      */
     [DisallowMultipleComponent]
-    public class Item : InteractionSourceNetworkBehaviour, IInteractionTarget
+    [RequireComponent(typeof(Rigidbody))]
+    public class Item : Selectable, IInteractionTarget
     {
         public string ItemId;
         public string Name;
@@ -29,11 +30,18 @@ namespace Spessman.Inventory
         [Tooltip("The size of the item inside a container")]
         public Vector2Int Size;
         
+        // Inventorty stuff
         private Stackable stack;
         private Container container;
         private FrozenItem frozenItem;
+        
+        // Hold offsets
+        public Vector3 rotationOffset;
+        public Vector3 positionOffset;
 
-        public AnimationClip animationClip;
+        // Possible animation clips for the item
+        public AnimationClip[] animationClips;
+        public AnimationClip currentAnimationClip;
 
         public Item()
         {
@@ -60,6 +68,7 @@ namespace Spessman.Inventory
         
         public virtual void Start()
         {
+            base.Start();
             foreach (var animator in GetComponents<Animator>())
             {
                 animator.keepAnimatorControllerStateOnDisable = true;

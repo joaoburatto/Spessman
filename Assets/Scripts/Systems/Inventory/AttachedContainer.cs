@@ -149,6 +149,7 @@ namespace Spessman.Inventory
                             Transform itemTransform = item.transform;
                             itemTransform.SetParent(transform, false);
                             itemTransform.localPosition = AttachmentOffset;
+                            itemTransform.localRotation = Quaternion.Euler(item.rotationOffset);
                             OnItemAttached(item);
                         }
                     }

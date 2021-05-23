@@ -20,6 +20,8 @@ public class CharacterMovement : NetworkBehaviour
     
     public Vector3 currentMovement = Vector3.zero;
     public Vector3 absoluteMovement = Vector3.zero;
+
+    public Transform currentMovementTransform;
     
     // Mouse looking target
     public Transform target;
@@ -61,18 +63,16 @@ public class CharacterMovement : NetworkBehaviour
 
     private void Update()
     {
+        // this avoids other players controlling you
         if(!isLocalPlayer) return;
         
-        // Input WASD
+        // Input
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-
-        // Joins movement input
         
         Vector2 newMovementInput = new Vector3(horizontal, vertical) * (isWalking ? walkSpeed : runSpeed);
-        
         if (ignoreInput) newMovementInput = Vector2.zero;
-
+        
         // Interpolates current movement to new movement
         currentMovement = Vector3.Lerp(currentMovement, newMovementInput * (baseMovementSpeed), Time.deltaTime * (lerpSpeed * 2));
 
@@ -80,13 +80,14 @@ public class CharacterMovement : NetworkBehaviour
         animator.speed = baseMovementSpeed;
 
         // if there's no input we interpolate to zero
-        if (newMovementInput.magnitude == 0)
+        if (newMovementInput.magnitude == 0 || blocked)
         {
             currentMovement = Vector3.Lerp(currentMovement, Vector3.zero, Time.deltaTime * 4);
             
             // if there's no movement we make the animator speed variable go to zero
             newSpeed = Mathf.LerpUnclamped(currentAnimatorSpeed, 0 , Time.deltaTime * 30);    
         }
+        
         // If there's movement we update the animator speed variable
         else
         {
@@ -105,6 +106,10 @@ public class CharacterMovement : NetworkBehaviour
         else
             absoluteMovement = Vector3.Lerp(absoluteMovement, Vector3.zero, Time.deltaTime * 5);
         
+        // other
+        Vector3 currentMovementTransformPosition = currentMovementTransform.position;
+        currentMovementTransform.position =  Vector3.Lerp(currentMovementTransformPosition, currentMovementTransformPosition + currentMovement, Time.deltaTime * 2); 
+            
         // restrict the movement if we have blocked the character
         if (!blocked)
         {
@@ -112,10 +117,10 @@ public class CharacterMovement : NetworkBehaviour
             controller.Move((absoluteMovement) * Time.deltaTime);
             // Look at target
             transform.rotation = Quaternion.LookRotation(absoluteMovement + (transform.forward * 10));
-            // Change animator speed value
-            animator.SetFloat("Speed", newSpeed);
         }
-
+        // Change animator speed value
+        animator.SetFloat("Speed", newSpeed);
+        
         controller.Move(Physics.gravity * Time.deltaTime);
     }
 }
