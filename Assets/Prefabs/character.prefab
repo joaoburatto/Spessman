@@ -296,7 +296,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 461235854184692850}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 489360a2c2fc43dcbdcc2346ba4fa12a, type: 3}
+  m_Script: {fileID: 11500000, guid: cbeb9ec6d72d47ce8218e3bc9d5abffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ViewRange: 10
@@ -594,6 +594,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   menuPrefab: {fileID: 6380575431912782132, guid: 69782ec738cf5ad40809cf5f548be89a, type: 3}
+  owner: {fileID: 2980058344329849433}
   selectedObject: {fileID: 0}
 --- !u!114 &1169471679841397450
 MonoBehaviour:
